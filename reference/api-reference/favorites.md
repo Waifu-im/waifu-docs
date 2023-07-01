@@ -3,7 +3,7 @@
 ## Get your favorites
 
 {% hint style="warning" %}
-This endpoint returns all images in the user favorites, meaning it will also returns lewd images if there are some in the user favorites, depeding on your need you may want to add a filter.
+This endpoint returns all images in the user favorites, meaning it will also returns lewd images if there are some in the user favorites.
 {% endhint %}
 
 {% swagger method="get" path="/fav" baseUrl="https://api.waifu.im" summary="Get your favorites" %}
