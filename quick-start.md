@@ -8,7 +8,7 @@ This small tutorial will only provide you with minimal knowledge of the API, if 
 
 The easiest way and most common to use the API is to get a random waifu images.
 
-{% swagger src=".gitbook/assets/swagger.yaml" path="/search" method="get" %}
+{% swagger src=".gitbook/assets/swagger.yaml" path="/search" method="get" expanded="false" %}
 [swagger.yaml](.gitbook/assets/swagger.yaml)
 {% endswagger %}
 
