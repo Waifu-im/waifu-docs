@@ -8,17 +8,61 @@ This small tutorial will only provide you with minimal knowledge of the API, if 
 
 The easiest and most common way to use the API is to get a random waifu images.
 
-{% swagger method="get" path="search" baseUrl="https://api.waifu.im/" summary="" expanded="true" fullWidth="false" %}
+{% swagger method="get" path="search" baseUrl="https://api.waifu.im/" summary="Search Images" expanded="true" %}
 {% swagger-description %}
-Get a waifu pictures based on specifc criterias or randomly.
+Retrieves images randomly or by tag based on the specified search criteria.
 {% endswagger-description %}
 
-{% swagger-parameter in="query" %}
-
+{% swagger-parameter in="query" required="false" name="included_tags" type="Array[string]" %}
+Force the API to return images with at least all the provided tags.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" required="false" name="included_tags" type="Array[string]" %}
-Force the API to return images with at least all the provided tags
+{% swagger-parameter in="query" required="false" name="excluded_tags" type="Array[string]" %}
+Force the API to return images without any of the provided tags.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" required="false" name="included_files" type="Array[string]" %}
+Force the API to provide only the specified file IDs or signatures.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" required="false" name="excluded_files" type="Array[string]" %}
+Force the API to not list the specified file IDs or signatures.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" required="false" name="is_nsfw" type="string" enum=["null", "true", "false"] %}
+Force or exclude lewd files (only works if included_tags only contain versatile tags and no nsfw only tag). You can provide 'null' to make it random.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" required="false" name="gif" type="boolean" %}
+Force or prevent the API to return .gif files.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" required="false" name="order_by" type="string" enum=["FAVORITES", "UPLOADED_AT", "LIKED_AT", "RANDOM"] %}
+Ordering criteria for the images.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" required="false" name="orientation" type="string" enum=["LANDSCAPE", "PORTRAIT", "RANDOM"] %}
+Image orientation criteria.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" required="false" name="many" type="boolean" %}
+Return an array of 30 files if true.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" required="false" name="full" type="boolean" %}
+Returns the full result without any limit (admins only).
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" required="false" name="width" type="string" example=">=2000" %}
+Filter images by width (in pixels). Accepted operators: <=, >=, >, <, !=, =
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" required="false" name="height" type="string" example=">=2000" %}
+Filter images by height (in pixels). Accepted operators: <=, >=, >, <, !=, =
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" required="false" name="byte_size" type="string" example=">=2000" %}
+Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
