@@ -10,7 +10,7 @@ The API has its own github organisation available here: [https://github.com/Waif
 
 ## Packages
 
-Here is some packages you might want to use
+Here are some packages you might want to use
 
 | Language | Package                                                         |
 | -------- | --------------------------------------------------------------- |
