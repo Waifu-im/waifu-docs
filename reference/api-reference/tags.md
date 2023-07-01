@@ -1,6 +1,16 @@
-# Pets
+# Tags
 
 ## Creating a new pet
+
+{% swagger method="get" path="" baseUrl="" summary="" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="query" %}
+
+{% endswagger-parameter %}
+{% endswagger %}
 
 {% swagger baseUrl="https://api.myapi.com/v1" method="post" path="/pet" summary="Create pet." %}
 {% swagger-description %}

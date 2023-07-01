@@ -11,7 +11,7 @@ Requires
  permission.
 {% endswagger-description %}
 
-{% swagger-parameter in="header" name="Authorization" required="true" %}
+{% swagger-parameter in="header" name="Authorization" required="true" type="string" %}
 `Bearer`
 
  (with the space) followed by your token

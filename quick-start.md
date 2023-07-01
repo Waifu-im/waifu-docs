@@ -17,19 +17,19 @@ The easiest and most common way to use the API is to get a random waifu images.
 Retrieves images randomly or by tag based on the specified search criteria.
 {% endswagger-description %}
 
-{% swagger-parameter in="query" required="false" name="included_tags" type="Array[string]" %}
+{% swagger-parameter in="query" required="false" name="included_tags" type="array[string]" %}
 Force the API to return images with at least all the provided tags.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" required="false" name="excluded_tags" type="Array[string]" %}
+{% swagger-parameter in="query" required="false" name="excluded_tags" type="array[string]" %}
 Force the API to return images without any of the provided tags.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" required="false" name="included_files" type="Array[string]" %}
+{% swagger-parameter in="query" required="false" name="included_files" type="array[string]" %}
 Force the API to provide only the specified file IDs or signatures.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" required="false" name="excluded_files" type="Array[string]" %}
+{% swagger-parameter in="query" required="false" name="excluded_files" type="array[string]" %}
 Force the API to not list the specified file IDs or signatures.
 {% endswagger-parameter %}
 
@@ -67,6 +67,12 @@ Filter images by height (in pixels). Accepted operators: <=, >=, >, <, !=, =
 
 {% swagger-parameter in="query" required="false" name="byte_size" type="string" %}
 Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
+`Bearer`
+
+ (with the space) followed by your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -145,7 +151,7 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-response %}
 {% endswagger %}
 
-Here is an example to get a random image with the maid tag with an height superior or equal to 2000px:
+Here is an example to get a random image with the `maid` tag with an height superior or equal to `2000`px:
 
 {% tabs %}
 {% tab title="Curl" %}

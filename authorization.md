@@ -13,11 +13,11 @@ The person that consult the page and click on
  will grant permissions over their account
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="user_id" type="Integer" required="true" %}
+{% swagger-parameter in="query" name="user_id" type="integer" required="true" %}
 The discord user ID of the user that will receive the permissions
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="permissions" type="String" required="true" %}
+{% swagger-parameter in="query" name="permissions" type="array[string]" required="true" %}
 The permissions that will be asked for. Available permissions are 
 
 `view_favorites`
@@ -37,11 +37,11 @@ The person that consult the page and click on
  will revoke permissions over their account
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="user_id" required="true" type="Integer" %}
+{% swagger-parameter in="query" name="user_id" required="true" type="integer" %}
 The discord user ID of the user that the permissions will be revoked
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="permissions" required="true" %}
+{% swagger-parameter in="query" name="permissions" required="true" type="array[string]" %}
 The permissions that will be prompted to be revoked. Available permissions are 
 
 `view_favorites`
