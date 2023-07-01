@@ -1,6 +1,6 @@
 # Permissions
 
-Some routes in our API require specific permissions to perform certain actions. When accessing user-specific resources or performing actions on your own account, your authentication token grants you full permissions. However, for certain actions, you may need additional permissions.
+Some routes in our API require specific permissions to perform certain actions. When accessing user-specific resources or performing actions on your own account, your authentication token grants you full permissions. However, for certain actions that are not related to your account, you may need additional permissions.
 
 ## Available Permissions
 
