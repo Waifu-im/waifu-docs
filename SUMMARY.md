@@ -6,6 +6,8 @@
 * [Rate Limiting](rate-limiting.md)
 * [Tags](tags.md)
 * [Authentication](authentication.md)
+* [Permissions](permissions.md)
+* [Authorization](authorization.md)
 * [Ressources](ressources.md)
 
 ## Reference
