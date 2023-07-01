@@ -4,6 +4,10 @@
 This small tutorial will only provide you with minimal knowledge of the API, if you wish to learn more just continue reading the docs step by step
 {% endhint %}
 
+{% hint style="info" %}
+Alternatively you can also use one of the packages mentioned in [#packages](ressources.md#packages "mention")
+{% endhint %}
+
 ## Get a random image
 
 The easiest and most common way to use the API is to get a random waifu images.
