@@ -13,5 +13,5 @@ You can check the `Retry-After` header to get the time to wait (in seconds) befo
 {% hint style="warning" %}
 Please note that excessive and abusive use of the API can result in being blacklisted and firewall banned.
 
-Please note that reaching the point of blacklisting requires persistent and excessive violations of the rate limits. Normal usage or occasional bursts of requests within the specified limits will not trigger such actions.
+Please note that reaching the point of blacklisting requires persistent and excessive violations of the rate limits. Normal usage or occasional bursts of requests within a reasonable range will not trigger such actions.
 {% endhint %}
