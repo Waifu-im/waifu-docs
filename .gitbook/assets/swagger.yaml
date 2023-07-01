@@ -95,7 +95,7 @@ info:
     url: https://www.mozilla.org/en-US/MPL/2.0/
   version: 5.2.3
 servers:
-- url: //api.waifu.im/
+- url: https://api.waifu.im
 paths:
   /fav:
     get:
