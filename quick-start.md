@@ -8,47 +8,8 @@ This small tutorial will only provide you with minimal knowledge of the API, if 
 
 The easiest way and most common to use the API is to get a random waifu images.
 
-{% swagger baseUrl="https://api.waifu.im" method="get" path="/search" summary="Search for waifu pictures" expanded="false" fullWidth="false" %}
-{% swagger-description %}
-If you do not provide anything, this will return a signle random safe image.
-{% endswagger-description %}
-
-{% swagger-parameter in="body" name="name" required="true" type="string" %}
-The name of the pet
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="owner_id" required="false" type="string" %}
-The 
-
-`id`
-
- of the user who owns the pet
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="species" required="false" type="string" %}
-The species of the pet
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="breed" required="false" type="string" %}
-The breed of the pet
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="Pet successfully created" %}
-```javascript
-{
-    "name"="Wilson",
-    "owner": {
-        "id": "sha7891bikojbkreuy",
-        "name": "Samuel Passet",
-    "species": "Dog",}
-    "breed": "Golden Retriever",
-}
-```
-{% endswagger-response %}
-
-{% swagger-response status="401" description="Permission denied" %}
-
-{% endswagger-response %}
+{% swagger src=".gitbook/assets/swagger.yaml" path="/search" method="get" %}
+[swagger.yaml](.gitbook/assets/swagger.yaml)
 {% endswagger %}
 
 Example:

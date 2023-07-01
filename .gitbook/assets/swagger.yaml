@@ -1,0 +1,645 @@
+openapi: 3.0.1
+info:
+  title: Waifu.im
+  description: |-
+    WAIFU.IM is an easy to use API that allows you to get waifu pictures from an archive of over 4000 images and multiple tags!
+
+    ## Versioning
+
+    You can specify which version of the API you want to use by placing it in the `Accept-Version` header.
+
+    If the value doesn't match any version, the latest version is used.
+
+    We highly recommend using versioning to prevent your app from breaking if a new version with breaking changes is developed. You can check which version you are using in the `Version` response header.
+
+    The latest version of the API is `v5`.
+
+    ## Breaking Changes
+
+    - `FAVOURITES` became `FAVORITES`.
+
+    - `/fav/delete` and `/fav/insert` now return the same structure as `/fav/toggle` and return a `200` status code.
+
+    - For more information, please join the Discord server or contact us by email.
+
+    ## Rate Limit
+
+    Note: This rate limit only applies to the `api.waifu.im` domain.
+
+    The rate limit is **1** request every **200** milliseconds. If you exceed this limit, the request will be put in a queue (with a maximum size of **10**).
+
+    If the queue is full, the server will respond with a **429** status code.
+
+    You can check the `Retry-After` header to get the time to wait (in seconds) before making another request.
+
+    ## Resources
+
+    Here are some useful resources related to the API:
+
+    - [GitHub](https://github.com/Waifu-im)
+
+    - [Python wrapper](https://github.com/Waifu-im/waifuim.py)
+
+    - [C# wrapper](https://github.com/SoNearSonar/WaifuImAPI-NET)
+
+    ## Tags
+
+    Images are classified by a tag system and can have multiple tags!
+
+    There are versatile tags that can describe both safe and lewd images, as well as NSFW tags that only describe lewd images.
+
+    You can get a list of all tags at the `/tags` endpoint.
+
+    ## Generate an Authorization Link
+
+    This part isn't directly related to the API, and the base URL is not the same.
+
+    This will allow you to generate a link asking a user to click on it and grant permissions over their Waifu.im account (you can also do the opposite with revoke).
+
+    This will be useful if you want to use the `user_id` query string when dealing with favorites.
+
+    | URI                                        | Request type |
+    |--------------------------------------------|--------------|
+    | https://www.waifu.im/authorization/        | GET          |
+    | https://www.waifu.im/authorization/revoke/ | GET          |
+
+    ### Query strings
+
+    | Name        | Required | Type         | Behavior                                                                                                  |
+    |-------------|----------|--------------|-----------------------------------------------------------------------------------------------------------|
+    | user_id     | Yes      | Integer      | The Discord user ID of the user that will receive the permissions                                         |
+    | permissions | Yes      | String Array | The permissions that will be asked for. Available permissions are `view_favorites` and `manage_favorites` |
+
+    To take in an array of values, provide the query string again with different values.
+
+
+    ## ⚠️ Warning
+    If you want to try routes that require authentication, you need to include your token. You can find your token at [https://www.waifu.im/dashboard](https://www.waifu.im/dashboard).
+
+    To include your token:
+
+    1. Click the `Authorize` button below.
+
+    2. In the dialog that appears, enter your token in the `Value` field.
+
+    3. Click `Authorize` to apply the token.
+
+    **Note:** When filling the field, ensure that you include the word `Bearer ` (with the space) before your token to properly authenticate your requests.
+  termsOfService: https://www.waifu.im/terms-of-service
+  contact:
+    name: Contact
+    url: http://www.waifu.im/contact
+    email: contact@waifu.im
+  license:
+    name: MPL 2.0
+    url: https://www.mozilla.org/en-US/MPL/2.0/
+  version: 5.2.3
+servers:
+- url: //api.waifu.im/
+paths:
+  /fav:
+    get:
+      tags:
+      - Favorites
+      summary: Fetch Favorite Images
+      description: Retrieves images based on the user's favorites.
+      parameters:
+      - name: included_tags
+        in: query
+        description: Force the API to return images with at least all the provided
+          tags
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: excluded_tags
+        in: query
+        description: Force the API to return images without any of the provided tags
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: included_files
+        in: query
+        description: Force the API to provide only the specified file IDs or signatures
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: excluded_files
+        in: query
+        description: Force the API to not list the specified file IDs or signatures
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: is_nsfw
+        in: query
+        description: Force or exclude lewd files (only works if included_tags only
+          contain versatile tags and no nsfw only tag).  You  can  provide  'null'  to  make  it  be  random.
+        schema:
+          type: string
+          default: "false"
+          enum:
+          - null
+          - "true"
+          - "false"
+      - name: gif
+        in: query
+        description: Force or prevent the API to return .gif files
+        schema:
+          type: boolean
+      - name: order_by
+        in: query
+        description: Ordering criteria
+        schema:
+          type: string
+          default: RANDOM
+          enum:
+          - FAVORITES
+          - UPLOADED_AT
+          - LIKED_AT
+          - RANDOM
+      - name: orientation
+        in: query
+        description: Image orientation
+        schema:
+          type: string
+          default: RANDOM
+          enum:
+          - LANDSCAPE
+          - PORTRAIT
+          - RANDOM
+      - name: many
+        in: query
+        description: Return an array of 30 files if true
+        schema:
+          type: boolean
+          default: false
+      - name: full
+        in: query
+        description: Returns the full result without any limit (admins only)
+        schema:
+          type: boolean
+          default: false
+      - name: width
+        in: query
+        description: 'Filter images by width (in pixels).                                   Accepted  operators:  <=,  >=,  >,  <,  !=,  ='
+        schema:
+          type: string
+      - name: height
+        in: query
+        description: 'Filter images by height (in pixels).                                  Accepted  operators:  <=,  >=,  >,  <,  !=,  ='
+        schema:
+          type: string
+      - name: byte_size
+        in: query
+        description: 'Filter images by byte size. Accepted operators: <=, >=, >, <,
+          !=, ='
+        schema:
+          type: string
+      - name: user_id
+        in: query
+        description: User ID
+        schema:
+          type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.ImagesJsonResponse'
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.JSONError'
+      security:
+      - ApiKeyAuth: []
+  /fav/delete:
+    post:
+      tags:
+      - Favorites
+      summary: Delete an image from favorites
+      description: Removes an image from the user's favorites.
+      requestBody:
+        description: User ID
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/serializers.User'
+        required: false
+      responses:
+        200:
+          description: DELETED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.FavState'
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.JSONError'
+      security:
+      - ApiKeyAuth: []
+      x-codegen-request-body-name: user_id
+  /fav/insert:
+    post:
+      tags:
+      - Favorites
+      summary: Insert an image to favorites
+      description: Inserts an image to the user's favorites.
+      requestBody:
+        description: User ID
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/serializers.User'
+        required: false
+      responses:
+        200:
+          description: INSERTED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.FavState'
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.JSONError'
+      security:
+      - ApiKeyAuth: []
+      x-codegen-request-body-name: user_id
+  /fav/toggle:
+    post:
+      tags:
+      - Favorites
+      summary: Toggle an image in favorites
+      description: Toggles an image in the user's favorites.
+      requestBody:
+        description: User ID
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/serializers.User'
+        required: false
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.FavState'
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.JSONError'
+      security:
+      - ApiKeyAuth: []
+      x-codegen-request-body-name: user_id
+  /report:
+    post:
+      tags:
+      - Report
+      summary: Report an image
+      description: Report an image with a given image ID and description
+      requestBody:
+        description: Image Data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/serializers.ReportImage'
+        required: true
+      responses:
+        200:
+          description: Returns the report information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/database.ReportRes'
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.JSONError'
+      security:
+      - ApiKeyAuth: []
+      x-codegen-request-body-name: image
+  /search:
+    get:
+      tags:
+      - Get Images
+      summary: Search Images
+      description: Retrieves images randomly or by tag based on the specified search
+        criteria.
+      parameters:
+      - name: included_tags
+        in: query
+        description: Force the API to return images with at least all the provided
+          tags
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: excluded_tags
+        in: query
+        description: Force the API to return images without any of the provided tags
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: included_files
+        in: query
+        description: Force the API to provide only the specified file IDs or signatures
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: excluded_files
+        in: query
+        description: Force the API to not list the specified file IDs or signatures
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: is_nsfw
+        in: query
+        description: Force or exclude lewd files (only works if included_tags only
+          contain versatile tags and no nsfw only tag).  You  can  provide  'null'  to  make  it  be  random.
+        schema:
+          type: string
+          default: "false"
+          enum:
+          - null
+          - "true"
+          - "false"
+      - name: gif
+        in: query
+        description: Force or prevent the API to return .gif files
+        schema:
+          type: boolean
+      - name: order_by
+        in: query
+        description: Ordering criteria
+        schema:
+          type: string
+          default: RANDOM
+          enum:
+          - FAVORITES
+          - UPLOADED_AT
+          - LIKED_AT
+          - RANDOM
+      - name: orientation
+        in: query
+        description: Image orientation
+        schema:
+          type: string
+          default: RANDOM
+          enum:
+          - LANDSCAPE
+          - PORTRAIT
+          - RANDOM
+      - name: many
+        in: query
+        description: Return an array of 30 files if true
+        schema:
+          type: boolean
+          default: false
+      - name: full
+        in: query
+        description: Returns the full result without any limit (admins only)
+        schema:
+          type: boolean
+          default: false
+      - name: width
+        in: query
+        description: 'Filter images by width (in pixels).                                   Accepted  operators:  <=,  >=,  >,  <,  !=,  ='
+        schema:
+          type: string
+      - name: height
+        in: query
+        description: 'Filter images by height (in pixels).                                  Accepted  operators:  <=,  >=,  >,  <,  !=,  ='
+        schema:
+          type: string
+      - name: byte_size
+        in: query
+        description: 'Filter images by byte size. Accepted operators: <=, >=, >, <,
+          !=, ='
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.ImagesJsonResponse'
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.JSONError'
+      security:
+      - ApiKeyAuth: []
+  /tags:
+    get:
+      tags:
+      - Tags
+      summary: Get tags
+      description: Get a list of tags
+      parameters:
+      - name: full
+        in: query
+        description: Returns more information about the tags, such as a description.
+        schema:
+          type: boolean
+          default: false
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.TagsJsonResponse'
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serializers.JSONError'
+components:
+  schemas:
+    database.ReportRes:
+      type: object
+      properties:
+        author_id:
+          type: integer
+        description:
+          type: string
+        existed:
+          type: boolean
+        image_id:
+          type: integer
+    models.Artist:
+      type: object
+      properties:
+        artist_id:
+          type: integer
+          example: 1
+        deviant_art:
+          type: string
+          example: https://www.deviantart.com/4thwallzart
+        name:
+          type: string
+          example: fourthwallzart
+        patreon:
+          type: string
+        pixiv:
+          type: string
+        twitter:
+          type: string
+          example: https://twitter.com/4thWallzArt
+    models.Image:
+      type: object
+      properties:
+        artist:
+          $ref: '#/components/schemas/models.Artist'
+        byte_size:
+          type: integer
+          example: 3299586
+        dominant_color:
+          type: string
+          example: '#bbb7b2'
+        extension:
+          type: string
+          example: .png
+        favorites:
+          type: integer
+          example: 1
+        height:
+          type: integer
+          example: 2304
+        image_id:
+          type: integer
+          example: 8108
+        is_nsfw:
+          type: boolean
+          example: false
+        liked_at:
+          type: string
+        preview_url:
+          type: string
+          example: https://www.waifu.im/preview/8108/
+        signature:
+          type: string
+          example: 58e6f0372364abda
+        source:
+          type: string
+          example: https://www.patreon.com/posts/persephone-78224476
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/models.Tag'
+        uploaded_at:
+          type: string
+          example: 2023-05-03T18:40:04.381354+02:00
+        url:
+          type: string
+          example: https://cdn.waifu.im/8108.png
+        width:
+          type: integer
+          example: 1536
+    models.Tag:
+      type: object
+      properties:
+        description:
+          type: string
+          example: A female anime/manga character.
+        is_nsfw:
+          type: boolean
+          example: false
+        name:
+          type: string
+          example: waifu
+        tag_id:
+          type: integer
+          example: 12
+    serializers.FavState:
+      type: object
+      properties:
+        state:
+          type: string
+          example: INSERT
+    serializers.Image:
+      type: object
+      properties:
+        image_id:
+          type: integer
+    serializers.ImagesJsonResponse:
+      type: object
+      properties:
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/models.Image'
+    serializers.JSONError:
+      type: object
+      properties:
+        detail:
+          type: string
+    serializers.ReportImage:
+      type: object
+      properties:
+        description:
+          maxLength: 200
+          type: string
+          example: Here is a less than 200 characters and optional description
+        image_id:
+          type: integer
+    serializers.TagsJsonResponse:
+      type: object
+      properties:
+        nsfw:
+          type: array
+          items:
+            type: object
+        versatile:
+          type: array
+          items:
+            type: object
+    serializers.User:
+      type: object
+      properties:
+        user_id:
+          type: integer
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: Authorization
+      in: header
