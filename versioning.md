@@ -2,8 +2,12 @@
 
 To make use of our API versioning, you need to include the desired version in the `Accept-Version` header of your API requests. This header allows you to explicitly specify the version of the API you want to interact with, ensuring that your code remains compatible and predictable, even as newer versions become available.
 
+{% hint style="warning" %}
+If you do not specify a version, the api will use the latest available, this behaviour may break your app if breaking changes has been released.
+{% endhint %}
+
 {% hint style="info" %}
-The current version of the API is v5
+The current version of the API is v5.
 
 
 {% endhint %}
