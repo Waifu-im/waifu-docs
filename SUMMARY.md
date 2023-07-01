@@ -4,6 +4,7 @@
 * [Quick Start](quick-start.md)
 * [Versioning](versioning.md)
 * [Rate Limiting](rate-limiting.md)
+* [Ressources](ressources.md)
 
 ## Reference
 
