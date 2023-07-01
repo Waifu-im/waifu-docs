@@ -7,9 +7,7 @@ If you do not specify a version, the api will use the latest available, this beh
 {% endhint %}
 
 {% hint style="info" %}
-The current version of the API is v5.
-
-
+The current version of the API is`v5`.
 {% endhint %}
 
 {% tabs %}
