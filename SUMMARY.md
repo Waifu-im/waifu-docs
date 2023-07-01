@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 * [Quick Start](quick-start.md)
 * [Versioning](versioning.md)
+* [Rate Limit](rate-limit.md)
 
 ## Reference
 
