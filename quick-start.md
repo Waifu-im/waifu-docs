@@ -145,13 +145,13 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-response %}
 {% endswagger %}
 
-Here is an example to get a random image with the maid tag:
+Here is an example to get a random image with the maid tag with an height superior to 2000px:
 
 {% tabs %}
 {% tab title="Curl" %}
 ```
 curl -X GET \
-  'https://api.waifu.im/search?included_tags=maid' \
+  'https://api.waifu.im/search?included_tags=maid&height=>=2000' \
   -H 'Content-Type: application/json'
 ```
 {% endtab %}
