@@ -1,6 +1,6 @@
 # Ressources
 
-Before you deev dipe into the API here are some ressources you may find useful
+Before you deev dipe into the API here are some ressources you may find useful.
 
 ## Github
 
