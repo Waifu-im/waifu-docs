@@ -29,7 +29,7 @@ Force the API to provide only the specified file IDs or signatures.
 Force the API to not list the specified file IDs or signatures.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" required="false" name="is_nsfw" type="string" enum=["null", "true", "false"] %}
+{% swagger-parameter in="query" required="false" name="is_nsfw" type="string" %}
 Force or exclude lewd files (only works if included_tags only contain versatile tags and no nsfw only tag). You can provide 'null' to make it random.
 {% endswagger-parameter %}
 
@@ -37,11 +37,11 @@ Force or exclude lewd files (only works if included_tags only contain versatile 
 Force or prevent the API to return .gif files.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" required="false" name="order_by" type="string" enum=["FAVORITES", "UPLOADED_AT", "LIKED_AT", "RANDOM"] %}
+{% swagger-parameter in="query" required="false" name="order_by" type="string" %}
 Ordering criteria for the images.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" required="false" name="orientation" type="string" enum=["LANDSCAPE", "PORTRAIT", "RANDOM"] %}
+{% swagger-parameter in="query" required="false" name="orientation" type="string" %}
 Image orientation criteria.
 {% endswagger-parameter %}
 
@@ -53,15 +53,15 @@ Return an array of 30 files if true.
 Returns the full result without any limit (admins only).
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" required="false" name="width" type="string" example=">=2000" %}
+{% swagger-parameter in="query" required="false" name="width" type="string" %}
 Filter images by width (in pixels). Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" required="false" name="height" type="string" example=">=2000" %}
+{% swagger-parameter in="query" required="false" name="height" type="string" %}
 Filter images by height (in pixels). Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" required="false" name="byte_size" type="string" example=">=2000" %}
+{% swagger-parameter in="query" required="false" name="byte_size" type="string" %}
 Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-parameter %}
 
@@ -105,6 +105,99 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 }
 ```
 {% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="" %}
+```json
+{"detail":"Bad Request"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="" %}
+```json
+{"detail":"Unauthorized"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="" %}
+
+
+```json
+{"detail":"Forbidden"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="" %}
+```json
+{"detail":"Not Found"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="" %}
+
+
+```json
+{"detail":"Internal Server Error"}
+```
+{% endswagger-response %}
 {% endswagger %}
 
-Example:
+Here is an example to get a random image with the maid tag:
+
+{% tabs %}
+{% tab title="Curl" %}
+```
+curl -X GET \
+  'https://api.waifu.im/search?included_tags=maid' \
+  -H 'Content-Type: application/json'
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+
+url = 'https://api.waifu.im/search'
+params = {
+    'included_tags': ['maid']
+}
+
+response = requests.get(url, params=params)
+
+if response.status_code == 200:
+    data = response.json()
+    # Process the response data as needed
+else:
+    print('Request failed with status code:', response.status_code)
+
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+const apiUrl = 'https://api.waifu.im/search';  // Replace with the actual API endpoint URL
+const params = {
+  included_tags: 'maid'
+};
+
+const queryParams = new URLSearchParams(params);
+const requestUrl = `${apiUrl}?${queryParams}`;
+
+fetch(requestUrl)
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Request failed with status code: ' + response.status);
+    }
+  })
+  .then(data => {
+    // Process the response data as needed
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('An error occurred:', error.message);
+  });
+
+```
+{% endtab %}
+{% endtabs %}
