@@ -8,10 +8,14 @@ This small tutorial will only provide you with minimal knowledge of the API, if 
 
 The easiest and most common way to use the API is to get a random waifu images.
 
-{% swagger method="get" path="search" baseUrl="https://api.waifu.im/" summary="" %}
+{% swagger method="get" path="search" baseUrl="https://api.waifu.im/" summary="" expanded="true" fullWidth="false" %}
 {% swagger-description %}
 Get a waifu pictures based on specifc criterias or randomly.
 {% endswagger-description %}
+
+{% swagger-parameter in="query" %}
+
+{% endswagger-parameter %}
 
 {% swagger-parameter in="query" required="false" name="included_tags" type="Array[string]" %}
 Force the API to return images with at least all the provided tags
