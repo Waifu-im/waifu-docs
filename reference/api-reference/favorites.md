@@ -2,6 +2,10 @@
 
 ## Get your favorites
 
+{% hint style="warning" %}
+This endpoint returns all images in the user favorites, meaning it will also returns lewd images if there are some in the user favorites, depeding on your need you may want to add a filter.
+{% endhint %}
+
 {% swagger method="get" path="/fav" baseUrl="https://api.waifu.im" summary="Get your favorites" %}
 {% swagger-description %}
 Requires 
@@ -66,7 +70,7 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% swagger-parameter in="header" name="Authorization" required="true" type="string" %}
 `Bearer`
 
- (with the space) followed by your token
+(with the space) followed by your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -74,36 +78,36 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {
   "images": [
     {
+      "signature": "85d7aa55941c7087",
+      "extension": ".jpg",
+      "image_id": 7622,
+      "favorites": 3,
+      "dominant_color": "#dfcdc5",
+      "source": "https://www.pixiv.net/en/artworks/95981691",
       "artist": {
-        "artist_id": 1,
-        "deviant_art": "https://www.deviantart.com/4thwallzart",
-        "name": "fourthwallzart",
-        "patreon": "string",
-        "pixiv": "string",
-        "twitter": "https://twitter.com/4thWallzArt"
+        "artist_id": 54,
+        "name": "大熊まい",
+        "patreon": null,
+        "pixiv": "https://www.pixiv.net/users/29449",
+        "twitter": "https://twitter.com/m_okuma0831",
+        "deviant_art": null
       },
-      "byte_size": 3299586,
-      "dominant_color": "#bbb7b2",
-      "extension": ".png",
-      "favorites": 1,
-      "height": 2304,
-      "image_id": 8108,
+      "uploaded_at": "2022-04-07T13:51:47.979181Z",
+      "liked_at": "2022-04-07T14:07:46.455245Z",
       "is_nsfw": false,
-      "liked_at": "string",
-      "preview_url": "https://www.waifu.im/preview/8108/",
-      "signature": "58e6f0372364abda",
-      "source": "https://www.patreon.com/posts/persephone-78224476",
+      "width": 1406,
+      "height": 1875,
+      "byte_size": 1538007,
+      "url": "https://cdn.waifu.im/7622.jpg",
+      "preview_url": "https://www.waifu.im/preview/7622/",
       "tags": [
         {
-          "description": "A female anime/manga character.",
-          "is_nsfw": false,
+          "tag_id": 12,
           "name": "waifu",
-          "tag_id": 12
+          "description": "A female anime/manga character.",
+          "is_nsfw": false
         }
-      ],
-      "uploaded_at": "2023-05-03T18:40:04.381354+02:00",
-      "url": "https://cdn.waifu.im/8108.png",
-      "width": 1536
+      ]
     }
   ]
 }
@@ -123,8 +127,6 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-response %}
 
 {% swagger-response status="403: Forbidden" description="" %}
-
-
 ```json
 {"detail":"Forbidden"}
 ```
@@ -137,22 +139,21 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-response %}
 
 {% swagger-response status="500: Internal Server Error" description="" %}
-
-
 ```json
 {"detail":"Internal Server Error"}
 ```
 {% endswagger-response %}
 {% endswagger %}
 
-Here is an example to get a random image with the `maid` tag with an height superior or equal to `2000`px:
+Here is an example to get your favorites:
 
 {% tabs %}
 {% tab title="Curl" %}
 ```
 curl -X GET \
-  'https://api.waifu.im/search?included_tags=maid&height=>=2000' \
-  -H 'Content-Type: application/json'
+  'https://api.waifu.im/fav' \
+  -H 'Accept-Version: v5' \
+  -H 'Authorization: Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0'
 ```
 {% endtab %}
 
@@ -160,13 +161,14 @@ curl -X GET \
 ```python
 import requests
 
-url = 'https://api.waifu.im/search'
-params = {
-    'included_tags': ['maid'],
-    'height': '>=2000'
+url = 'https://api.waifu.im/fav'
+
+headers = {
+    'Accept-Version': 'v5',
+    'Authorization': 'Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0',
 }
 
-response = requests.get(url, params=params)
+response = requests.get(url, headers=headers)
 
 if response.status_code == 200:
     data = response.json()
@@ -179,16 +181,13 @@ else:
 
 {% tab title="Javascript" %}
 ```javascript
-const apiUrl = 'https://api.waifu.im/search';  // Replace with the actual API endpoint URL
-const params = {
-  included_tags: 'maid',
-  height: '>=2000'
-};
+const apiUrl = 'https://api.waifu.im/fav';
 
-const queryParams = new URLSearchParams(params);
-const requestUrl = `${apiUrl}?${queryParams}`;
+const headers = new Headers();
+headers.append('Accept-Version', 'v5');
+headers.append('Authorization', 'Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0');
 
-fetch(requestUrl)
+fetch(apiUrl, { headers })
   .then(response => {
     if (response.ok) {
       return response.json();
