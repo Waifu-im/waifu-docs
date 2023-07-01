@@ -1,7 +1,7 @@
 # Quick Start
 
 {% hint style="info" %}
-This small tutorial will only provide you with minimal knowledge of the API, if you wish to apply filters etc, please refere to the API Reference
+This small tutorial will only provide you with minimal knowledge of the API, if you wish to learn more just continue reading the docs step by step
 {% endhint %}
 
 ## Get a random image
