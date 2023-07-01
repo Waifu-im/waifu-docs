@@ -10,5 +10,5 @@
 ## Reference
 
 * [API Reference](reference/api-reference/README.md)
-  * [Tags](reference/api-reference/pets.md)
+  * [Tags](reference/api-reference/tags.md)
   * [Users](reference/api-reference/users.md)
