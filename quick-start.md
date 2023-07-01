@@ -162,7 +162,8 @@ import requests
 
 url = 'https://api.waifu.im/search'
 params = {
-    'included_tags': ['maid']
+    'included_tags': ['maid'],
+    'height': '>=2000'
 }
 
 response = requests.get(url, params=params)
@@ -180,7 +181,8 @@ else:
 ```javascript
 const apiUrl = 'https://api.waifu.im/search';  // Replace with the actual API endpoint URL
 const params = {
-  included_tags: 'maid'
+  included_tags: 'maid',
+  height: '>=2000'
 };
 
 const queryParams = new URLSearchParams(params);
