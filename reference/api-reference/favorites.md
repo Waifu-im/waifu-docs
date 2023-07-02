@@ -8,11 +8,11 @@ By default, this endpoint returns all images in the user favorites, meaning it w
 
 {% swagger method="get" path="fav" baseUrl="https://api.waifu.im/" summary="Get your favorites." %}
 {% swagger-description %}
-Requires 
+Requires
 
 `view_favorites`
 
- permission.
+permission.
 {% endswagger-description %}
 
 {% swagger-parameter in="query" required="false" name="included_tags" type="array[string]" %}
@@ -209,13 +209,13 @@ fetch(apiUrl, { headers })
 
 ## Manage your favorites
 
-{% swagger method="post" path="fav/insert" baseUrl="https://api.waifu.im/" summary="Inserts an image to the user's favorites." %}
+{% swagger method="post" path="fav/insert" baseUrl="https://api.waifu.im/" summary="Inserts an image into the user's favorites" %}
 {% swagger-description %}
 
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="image_id" type="integer" required="true" %}
-The ID of the image to add.
+The ID of the image to insert.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="user_id" type="integer" required="false" %}
@@ -265,7 +265,7 @@ The user ID of the user whose favorites you want to edit.
 {% endswagger-response %}
 {% endswagger %}
 
-Here is an example to add the image ID `8008` into your favorites:
+Here is an example to insert the image ID `8008` into your favorites:
 
 {% tabs %}
 {% tab title="Curl" %}
@@ -347,7 +347,7 @@ fetch(apiUrl, {
 {% endtab %}
 {% endtabs %}
 
-{% swagger method="delete" path="fav/delete" baseUrl="https://api.waifu.im/" summary="Removes an image from the user's favorites." %}
+{% swagger method="delete" path="fav/delete" baseUrl="https://api.waifu.im/" summary="Removes an image from the user's favorites" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -485,9 +485,9 @@ fetch(apiUrl, {
 {% endtab %}
 {% endtabs %}
 
-{% swagger method="post" path="fav/toggle" baseUrl="https://api.waifu.im/" summary="Toggles an image in the user's favorites." %}
+{% swagger method="post" path="fav/toggle" baseUrl="https://api.waifu.im/" summary="Toggles an image in the user's favorites" %}
 {% swagger-description %}
-
+If the image is already in the user's favorites, it will be removed. If it was not in the favorites, it will be inserted.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="image_id" type="integer" required="true" %}
