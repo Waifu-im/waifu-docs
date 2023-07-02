@@ -1,6 +1,6 @@
 # Search
 
-{% swagger method="get" path="search" baseUrl="https://api.waifu.im/" summary="Search Images." expanded="true" %}
+{% swagger method="get" path="search" baseUrl="https://api.waifu.im/" summary="Search images." expanded="true" %}
 {% swagger-description %}
 Retrieves images randomly or by tag based on the specified search criteria.
 {% endswagger-description %}
@@ -117,8 +117,6 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-response %}
 
 {% swagger-response status="403: Forbidden" description="" %}
-
-
 ```json
 {"detail":"Forbidden"}
 ```
@@ -131,8 +129,6 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-response %}
 
 {% swagger-response status="500: Internal Server Error" description="" %}
-
-
 ```json
 {"detail":"Internal Server Error"}
 ```
