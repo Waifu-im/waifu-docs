@@ -70,7 +70,7 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% swagger-parameter in="header" name="Authorization" required="true" type="string" %}
 `Bearer`
 
-(with the space) followed by your token
+ (with the space) followed by your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -211,7 +211,11 @@ fetch(apiUrl, { headers })
 
 {% swagger method="post" path="fav/insert" baseUrl="https://api.waifu.im/" summary="Inserts an image into the user's favorites" %}
 {% swagger-description %}
+Requires 
 
+`manage_favorites`
+
+ permission.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="image_id" type="integer" required="true" %}
@@ -225,7 +229,7 @@ The user ID of the user whose favorites you want to edit.
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
 `Bearer`
 
-(with the space) followed by your token
+ (with the space) followed by your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -349,7 +353,11 @@ fetch(apiUrl, {
 
 {% swagger method="delete" path="fav/delete" baseUrl="https://api.waifu.im/" summary="Removes an image from the user's favorites" %}
 {% swagger-description %}
+Requires 
 
+`manage_favorites`
+
+ permission.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="image_id" type="integer" required="true" %}
@@ -363,7 +371,7 @@ The user ID of the user whose favorites you want to edit.
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
 `Bearer`
 
-(with the space) followed by your token
+ (with the space) followed by your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -488,6 +496,8 @@ fetch(apiUrl, {
 {% swagger method="post" path="fav/toggle" baseUrl="https://api.waifu.im/" summary="Toggles an image in the user's favorites" %}
 {% swagger-description %}
 If the image is already in the user's favorites, it will be removed. If it was not in the favorites, it will be inserted.
+
+Requires `manage_favorites` permission.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="image_id" type="integer" required="true" %}
@@ -501,7 +511,7 @@ The user ID of the user whose favorites you want to edit.
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
 `Bearer`
 
-(with the space) followed by your token
+ (with the space) followed by your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="If the image was already in the favorites" %}
