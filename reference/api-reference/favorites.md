@@ -6,7 +6,7 @@
 By default, this endpoint returns all images in the user favorites, meaning it will also returns lewd images if there are some in the user favorites.
 {% endhint %}
 
-{% swagger method="get" path="/fav" baseUrl="https://api.waifu.im" summary="Get your favorites." %}
+{% swagger method="get" path="fav" baseUrl="https://api.waifu.im/" summary="Get your favorites." %}
 {% swagger-description %}
 Requires 
 
@@ -209,8 +209,22 @@ fetch(apiUrl, { headers })
 
 ## Manage your favorites
 
-{% swagger method="get" path="fav" baseUrl="https://api.waifu.im/" summary="" %}
+{% swagger method="post" path="fav/insert" baseUrl="https://api.waifu.im/" summary="Inserts an image to the user's favorites." %}
 {% swagger-description %}
 
 {% endswagger-description %}
+
+{% swagger-parameter in="body" name="image_id" type="integer" required="true" %}
+The ID of the image to add.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="user_id" type="integer" required="false" %}
+The user ID of the user whose favorites you want to edit.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
+`Bearer`
+
+(with the space) followed by your token
+{% endswagger-parameter %}
 {% endswagger %}
