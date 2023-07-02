@@ -227,4 +227,404 @@ The user ID of the user whose favorites you want to edit.
 
 (with the space) followed by your token
 {% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```json
+{"state":"INSERTED"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="" %}
+```json
+{"detail":"Bad Request"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="" %}
+```json
+{"detail":"Unauthorized"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="" %}
+```json
+{"detail":"Forbidden"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="" %}
+```json
+{"detail":"Not Found"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="" %}
+```json
+{"detail":"Internal Server Error"}
+```
+{% endswagger-response %}
 {% endswagger %}
+
+Here is an example to add the image ID `8008` into your favorites:
+
+{% tabs %}
+{% tab title="Curl" %}
+```
+curl -X POST \
+  'https://api.waifu.im/fav/insert' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept-Version: v5' \
+  -H 'Authorization: Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0' \
+  -d '{
+    "image_id": 8008
+  }'
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+
+url = 'https://api.waifu.im/fav/insert'
+
+headers = {
+    'Accept-Version': 'v5',
+    'Authorization': 'Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0',
+    'Content-Type': 'application/json',
+}
+
+data = {
+    'image_id': 8008
+}
+
+response = requests.post(url, headers=headers, json=data)
+
+if response.status_code == 200:
+    data = response.json()
+    # Process the response data as needed
+else:
+    print('Request failed with status code:', response.status_code)
+
+
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+const apiUrl = 'https://api.waifu.im/fav/insert';
+
+const headers = new Headers();
+headers.append('Accept-Version', 'v5');
+headers.append('Authorization', 'Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0');
+headers.append('Content-Type', 'application/json');
+
+const data = {
+  image_id: 8008
+};
+
+fetch(apiUrl, {
+  method: 'POST',
+  headers: headers,
+  body: JSON.stringify(data)
+})
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Request failed with status code: ' + response.status);
+    }
+  })
+  .then(data => {
+    // Process the response data as needed
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('An error occurred:', error.message);
+  });
+
+
+```
+{% endtab %}
+{% endtabs %}
+
+{% swagger method="delete" path="fav/delete" baseUrl="https://api.waifu.im/" summary="Removes an image from the user's favorites." %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="image_id" type="integer" required="true" %}
+The ID of the image to remove.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="user_id" type="integer" required="false" %}
+The user ID of the user whose favorites you want to edit.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
+`Bearer`
+
+(with the space) followed by your token
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```json
+{"state":"DELETED"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="" %}
+```json
+{"detail":"Bad Request"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="" %}
+```json
+{"detail":"Unauthorized"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="" %}
+```json
+{"detail":"Forbidden"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="" %}
+```json
+{"detail":"Not Found"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="" %}
+```json
+{"detail":"Internal Server Error"}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+Here is an example to remove the image ID `8008` from your favorites:
+
+{% tabs %}
+{% tab title="Curl" %}
+```
+curl -X DELETE \
+  'https://api.waifu.im/fav/delete' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept-Version: v5' \
+  -H 'Authorization: Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0' \
+  -d '{
+    "image_id": 8008
+  }'
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+
+url = 'https://api.waifu.im/fav/delete'
+
+headers = {
+    'Accept-Version': 'v5',
+    'Authorization': 'Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0',
+    'Content-Type': 'application/json',
+}
+
+data = {
+    'image_id': 8008
+}
+
+response = requests.delete(url, headers=headers, json=data)
+
+if response.status_code == 200:
+    data = response.json()
+    # Process the response data as needed
+else:
+    print('Request failed with status code:', response.status_code)
+
+
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+const apiUrl = 'https://api.waifu.im/fav/delete';
+
+const headers = new Headers();
+headers.append('Accept-Version', 'v5');
+headers.append('Authorization', 'Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0');
+headers.append('Content-Type', 'application/json');
+
+const data = {
+  image_id: 8008
+};
+
+fetch(apiUrl, {
+  method: 'DELETE',
+  headers: headers,
+  body: JSON.stringify(data)
+})
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Request failed with status code: ' + response.status);
+    }
+  })
+  .then(data => {
+    // Process the response data as needed
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('An error occurred:', error.message);
+  });
+
+
+```
+{% endtab %}
+{% endtabs %}
+
+{% swagger method="post" path="fav/toggle" baseUrl="https://api.waifu.im/" summary="Toggles an image in the user's favorites." %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="image_id" type="integer" required="true" %}
+The ID of the image to toggle.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="user_id" type="integer" required="false" %}
+The user ID of the user whose favorites you want to edit.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
+`Bearer`
+
+(with the space) followed by your token
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="If the image was already in the favorites" %}
+```json
+{"state":"DELETED"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="200: OK" description="If the image was not already in the favorites" %}
+```json
+{"state":"INSERTED"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="" %}
+```json
+{"detail":"Bad Request"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="" %}
+```json
+{"detail":"Unauthorized"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="" %}
+```json
+{"detail":"Forbidden"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="" %}
+```json
+{"detail":"Not Found"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="" %}
+```json
+{"detail":"Internal Server Error"}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+Here is an example to toggle the image ID 8008 from your favorites:
+
+{% tabs %}
+{% tab title="Curl" %}
+```
+curl -X POST \
+  'https://api.waifu.im/fav/toggle' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept-Version: v5' \
+  -H 'Authorization: Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0' \
+  -d '{
+    "image_id": 8008
+  }'
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+
+url = 'https://api.waifu.im/fav/toggle'
+
+headers = {
+    'Accept-Version': 'v5',
+    'Authorization': 'Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0',
+    'Content-Type': 'application/json',
+}
+
+data = {
+    'image_id': 8008
+}
+
+response = requests.post(url, headers=headers, json=data)
+
+if response.status_code == 200:
+    data = response.json()
+    # Process the response data as needed
+else:
+    print('Request failed with status code:', response.status_code)
+
+
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+const apiUrl = 'https://api.waifu.im/fav/toggle';
+
+const headers = new Headers();
+headers.append('Accept-Version', 'v5');
+headers.append('Authorization', 'Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0');
+headers.append('Content-Type', 'application/json');
+
+const data = {
+  image_id: 8008
+};
+
+fetch(apiUrl, {
+  method: 'POST',
+  headers: headers,
+  body: JSON.stringify(data)
+})
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Request failed with status code: ' + response.status);
+    }
+  })
+  .then(data => {
+    // Process the response data as needed
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('An error occurred:', error.message);
+  });
+
+
+```
+{% endtab %}
+{% endtabs %}
