@@ -269,7 +269,7 @@ Here is an example to insert the image ID `8008` into your favorites:
 
 {% tabs %}
 {% tab title="Curl" %}
-```
+```bash
 curl -X POST \
   'https://api.waifu.im/fav/insert' \
   -H 'Content-Type: application/json' \
@@ -407,7 +407,7 @@ Here is an example to remove the image ID `8008` from your favorites:
 
 {% tabs %}
 {% tab title="Curl" %}
-```
+```bash
 curl -X DELETE \
   'https://api.waifu.im/fav/delete' \
   -H 'Content-Type: application/json' \
@@ -547,11 +547,11 @@ The user ID of the user whose favorites you want to edit.
 {% endswagger-response %}
 {% endswagger %}
 
-Here is an example to toggle the image ID 8008 from your favorites:
+Here is an example to toggle the image ID `8008` from your favorites:
 
 {% tabs %}
 {% tab title="Curl" %}
-```
+```bash
 curl -X POST \
   'https://api.waifu.im/fav/toggle' \
   -H 'Content-Type: application/json' \

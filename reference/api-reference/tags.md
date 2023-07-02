@@ -168,3 +168,54 @@ Returns more information about the tags, such as a description.
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+Here is an example to get a list of all the tags available:
+
+{% tabs %}
+{% tab title="Curl" %}
+```bash
+curl -X GET \
+  'https://api.waifu.im/tags'
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+
+url = 'https://api.waifu.im/tags'
+
+response = requests.get(url)
+
+if response.status_code == 200:
+    data = response.json()
+    # Process the response data as needed
+else:
+    print('Request failed with status code:', response.status_code)
+
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+const apiUrl = 'https://api.waifu.im/tags';
+
+fetch(apiUrl)
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Request failed with status code: ' + response.status);
+    }
+  })
+  .then(data => {
+    // Process the response data as needed
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('An error occurred:', error.message);
+  });
+
+```
+{% endtab %}
+{% endtabs %}
