@@ -2,22 +2,18 @@
 
 Dive into the specifics of each API endpoint by checking out our complete documentation.
 
-## Pets
+## Tags
 
-All the methods associated with `CRUD`ing some pets. Which isn't as weird as it sounds:
+All the endpoints associated with the tags
 
 {% content-ref url="tags.md" %}
 [tags.md](tags.md)
 {% endcontent-ref %}
 
-## Users
+## Favorites
 
-Everything related to users:
+All endpoints related to viewing or managing the favorites.
 
 {% content-ref url="favorites.md" %}
 [favorites.md](favorites.md)
 {% endcontent-ref %}
-
-{% hint style="info" %}
-**Good to know:** Using the 'Page Link' block lets you link directly to a page. If this page's name, URL or parent location changes, the reference will be kept up to date. You can also mention a page – like [tags.md](tags.md "mention") – if you don't want a block-level link.
-{% endhint %}
