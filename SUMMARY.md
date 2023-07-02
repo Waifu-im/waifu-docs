@@ -13,5 +13,7 @@
 ## Reference
 
 * [API Reference](reference/api-reference/README.md)
+  * [Report](reference/api-reference/report.md)
+  * [Search](reference/api-reference/search.md)
   * [Tags](reference/api-reference/tags.md)
   * [Favorites](reference/api-reference/favorites.md)
