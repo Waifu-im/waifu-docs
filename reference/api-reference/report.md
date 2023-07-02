@@ -1,8 +1,6 @@
 # Report
 
-
-
-{% swagger method="post" path="report" baseUrl="https://api.waifu.im/" summary="Reports an image" %}
+{% swagger method="post" path="report" baseUrl="https://api.waifu.im/" summary="Reports an image." %}
 {% swagger-description %}
 Used to report any inappropriate, offensive or wrongly labelled image in the API.
 
@@ -20,7 +18,7 @@ A brief explanation (up to 200 characters) used to describe the issue.
 {% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
 `Bearer`
 
-(with the space) followed by your token
+ (with the space) followed by your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}

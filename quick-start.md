@@ -74,3 +74,9 @@ fetch(requestUrl)
 ```
 {% endtab %}
 {% endtabs %}
+
+{% hint style="success" %}
+It is recommended to checkout the [api-reference](reference/api-reference/ "mention").
+
+You can find a more detailed guide for this route here : [#search-images.](reference/api-reference/search.md#search-images. "mention")
+{% endhint %}
