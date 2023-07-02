@@ -10,6 +10,10 @@ All the endpoints associated with the tags
 [tags.md](tags.md)
 {% endcontent-ref %}
 
+## Search
+
+
+
 ## Favorites
 
 All endpoints related to viewing or managing the favorites.
