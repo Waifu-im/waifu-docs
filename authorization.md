@@ -28,7 +28,7 @@ The permissions that will be asked for. Available permissions are
 {% endswagger-parameter %}
 {% endswagger %}
 
-{% swagger method="get" path="/authorization/revoke" baseUrl="https://www.waifu.im" summary="Prompt a user to revoke permissions over their account" %}
+{% swagger method="get" path="authorization/revoke" baseUrl="https://www.waifu.im/" summary="Prompt a user to revoke permissions over their account" %}
 {% swagger-description %}
 The person that consult the page and click on 
 

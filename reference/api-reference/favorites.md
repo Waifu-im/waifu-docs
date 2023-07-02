@@ -208,3 +208,9 @@ fetch(apiUrl, { headers })
 {% endtabs %}
 
 ## Manage your favorites
+
+{% swagger method="get" path="fav" baseUrl="https://api.waifu.im/" summary="" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+{% endswagger %}
