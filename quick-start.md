@@ -151,7 +151,7 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-response %}
 {% endswagger %}
 
-Here is an example to get a random image with the `maid` tag with an height superior or equal to `2000`px:
+Here is an example to get a random image with the `maid` tag with an height superior or equal to 2000 pixels:
 
 {% tabs %}
 {% tab title="Curl" %}
