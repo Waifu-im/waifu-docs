@@ -14,7 +14,7 @@ here is an example to [#get-your-favorites](reference/api-reference/favorites.md
 
 {% tabs %}
 {% tab title="Curl" %}
-```
+```bash
 curl -X GET \
   'https://api.waifu.im/fav' \
   -H 'Accept-Version: v5' \

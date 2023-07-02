@@ -8,11 +8,11 @@ By default, this endpoint returns all images in the user favorites, meaning it w
 
 {% swagger method="get" path="fav" baseUrl="https://api.waifu.im/" summary="Get your favorites." %}
 {% swagger-description %}
-Requires
+Requires 
 
 `view_favorites`
 
-permission.
+ permission.
 {% endswagger-description %}
 
 {% swagger-parameter in="query" required="false" name="included_tags" type="array[string]" %}
@@ -149,7 +149,7 @@ Here is an example to get your favorites:
 
 {% tabs %}
 {% tab title="Curl" %}
-```
+```bash
 curl -X GET \
   'https://api.waifu.im/fav' \
   -H 'Accept-Version: v5' \

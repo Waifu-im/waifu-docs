@@ -155,7 +155,7 @@ Here is an example to get a random image with the `maid` tag with an height supe
 
 {% tabs %}
 {% tab title="Curl" %}
-```
+```bash
 curl -X GET \
   'https://api.waifu.im/search?included_tags=maid&height=>=2000' \
   -H 'Content-Type: application/json'

@@ -12,7 +12,7 @@ The current version of the API is`v5`.
 
 {% tabs %}
 {% tab title="Curl" %}
-```
+```bash
 curl -X GET \
   'https://api.waifu.im/search' \
   -H 'Content-Type: application/json' \
