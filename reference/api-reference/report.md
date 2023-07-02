@@ -26,9 +26,39 @@ A brief explanation (up to 200 characters) used to describe the issue.
 {
   "author_id": 428346579283272370,
   "description": "The tag 'maid' does not suit the image.",
-  "existed": true,
+  "existed": false,
   "image_id": 8008
 }
+```
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="" %}
+```json
+{"detail":"Bad Request"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="" %}
+```json
+{"detail":"Unauthorized"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="" %}
+```json
+{"detail":"Forbidden"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="" %}
+```json
+{"detail":"Not Found"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="" %}
+```json
+{"detail":"Internal Server Error"}
 ```
 {% endswagger-response %}
 {% endswagger %}
