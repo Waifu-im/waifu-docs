@@ -12,7 +12,7 @@ Alternatively you can also use one of the packages mentioned in [#packages](ress
 
 The easiest and most common way to use the API is to get a random waifu images.
 
-{% swagger method="get" path="search" baseUrl="https://api.waifu.im/" summary="Search Images" expanded="true" %}
+{% swagger method="get" path="search" baseUrl="https://api.waifu.im/" summary="Search Images." expanded="true" %}
 {% swagger-description %}
 Retrieves images randomly or by tag based on the specified search criteria.
 {% endswagger-description %}
