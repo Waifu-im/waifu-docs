@@ -10,11 +10,24 @@ Finally nsfw tag will always return lewd images regardless of `is_nsfw` paramete
 
 {% tabs %}
 {% tab title="Versatile" %}
-* [waifu](https://api.waifu.im/search?included\_tags=waifu)
+* [waifu](https://api.waifu.im/search?included_tags=waifu)
+* [maid](https://api.waifu.im/search?included_tags=maid)
+* [marin-kitagawa](https://api.waifu.im/search?included_tags=marin-kitagawa)
+* [mori-calliope](https://api.waifu.im/search?included_tags=mori-calliope)
+* [raiden-shogun](https://api.waifu.im/search?included_tags=raiden-shogun)
+* [oppai](https://api.waifu.im/search?included_tags=oppai)
+* [selfies](https://api.waifu.im/search?included_tags=selfies)
+* [uniform](https://api.waifu.im/search?included_tags=uniform)
 {% endtab %}
 
 {% tab title="NSFW" %}
-* [ero](https://api.waifu.im/searhc?included\_tags=ero)
+* [ero](https://api.waifu.im/search?included_tags=ero)
+* [ass](https://api.waifu.im/search?included_tags=ass)
+* [hentai](https://api.waifu.im/search?included_tags=hentai)
+* [milf](https://api.waifu.im/search?included_tags=milf)
+* [oral](https://api.waifu.im/search?included_tags=oral)
+* [paizuri](https://api.waifu.im/search?included_tags=paizuri)
+* [ecchi](https://api.waifu.im/search?included_tags=ecchi)
 {% endtab %}
 {% endtabs %}
 
