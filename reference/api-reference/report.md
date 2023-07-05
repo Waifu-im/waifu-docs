@@ -71,7 +71,7 @@ If the image was already reported the `existed` key will be `true.`
 {% tab title="Curl" %}
 ```sh
 curl -X POST \
-  'https://api.wahifu.im/report' \
+  'https://api.waifu.im/report' \
   -H 'Content-Type: application/json' \
   -H 'Accept-Version: v5' \
   -H 'Authorization: Bearer TjBY0MBcS3-SEc3Ms6T4GKjHGJkbqM6McejlQdnqo2y47jWNLa4agsWYdJukocDqHpm2zYFO5z2AjMzkUSfLsCz1AgbDhSjKLMIOnhJGFgODgOkSnzaAWzvGZZPdbm6vOTxs2chmz-3DSRVzwQLl__eYE4Wnjtr0aIGzXlo82M0' \
