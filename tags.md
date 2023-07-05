@@ -8,4 +8,14 @@ A mistake people usually make is that they assume nsfw tags are lewd and versati
 
 Finally nsfw tag will always return lewd images regardless of `is_nsfw` parameter.
 
-You can get a list of all tags at the [Tags.md](reference/api-reference/tags.md "mention") endpoint.
+{% tabs %}
+{% tab title="Versatile" %}
+* [waifu](https://api.waifu.im/search?included\_tags=waifu)
+{% endtab %}
+
+{% tab title="NSFW" %}
+* [ero](https://api.waifu.im/searhc?included\_tags=ero)
+{% endtab %}
+{% endtabs %}
+
+You can get a list of all tags at the [tags.md](reference/api-reference/tags.md "mention") endpoint.
