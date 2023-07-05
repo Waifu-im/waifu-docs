@@ -9,6 +9,7 @@
 * [Permissions](permissions.md)
 * [Authorization](authorization.md)
 * [Ressources](ressources.md)
+* [Contact us](contact-us.md)
 
 ## Reference
 
@@ -17,7 +18,3 @@
   * [Search](reference/api-reference/search.md)
   * [Favorites](reference/api-reference/favorites.md)
   * [Report](reference/api-reference/report.md)
-
-***
-
-* [Contact us](contact-us.md)
