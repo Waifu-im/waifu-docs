@@ -16,9 +16,7 @@ A brief explanation (up to 200 characters) used to describe the issue.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
-`Bearer`
-
- (with the space) followed by your token
+`Bearer ` (with the space) followed by your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
