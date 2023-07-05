@@ -17,3 +17,7 @@
   * [Search](reference/api-reference/search.md)
   * [Favorites](reference/api-reference/favorites.md)
   * [Report](reference/api-reference/report.md)
+
+***
+
+* [Contact us](contact-us.md)
