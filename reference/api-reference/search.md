@@ -58,9 +58,7 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
-`Bearer`
-
- (with the space) followed by your token
+`Bearer` followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}

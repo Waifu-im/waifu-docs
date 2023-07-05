@@ -225,9 +225,7 @@ The user ID of the user whose favorites you want to edit.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-`Bearer`
-
- (with the space) followed by your token
+`Bearer` followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -367,9 +365,7 @@ The user ID of the user whose favorites you want to edit.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-`Bearer`
-
- (with the space) followed by your token
+`Bearer` followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -507,9 +503,7 @@ The user ID of the user whose favorites you want to edit.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-`Bearer`
-
- (with the space) followed by your token
+`Bearer` followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="If the image was already in the favorites" %}
