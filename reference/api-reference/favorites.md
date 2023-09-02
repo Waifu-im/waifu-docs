@@ -8,11 +8,11 @@ By default, this endpoint returns all images in the user favorites, meaning it w
 
 {% swagger method="get" path="fav" baseUrl="https://api.waifu.im/" summary="Get your favorites." %}
 {% swagger-description %}
-Requires 
+Requires
 
 `view_favorites`
 
- permission.
+permission.
 {% endswagger-description %}
 
 {% swagger-parameter in="query" required="false" name="included_tags" type="array[string]" %}
@@ -68,7 +68,9 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" required="true" type="string" %}
-`Bearer` followed by a space and your token
+`Bearer`
+
+ followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -207,13 +209,13 @@ fetch(apiUrl, { headers })
 
 ## Manage your favorites
 
-{% swagger method="post" path="fav/insert" baseUrl="https://api.waifu.im/" summary="Inserts an image into the user's favorites" %}
+{% swagger method="post" path="fav/insert" baseUrl="https://api.waifu.im/" summary="Inserts an image into the user" %}
 {% swagger-description %}
-Requires 
+Requires
 
 `manage_favorites`
 
- permission.
+permission.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="image_id" type="integer" required="true" %}
@@ -225,7 +227,9 @@ The user ID of the user whose favorites you want to edit.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-`Bearer` followed by a space and your token
+`Bearer`
+
+ followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -255,6 +259,12 @@ The user ID of the user whose favorites you want to edit.
 {% swagger-response status="404: Not Found" description="" %}
 ```json
 {"detail":"Not Found"}
+```
+{% endswagger-response %}
+
+{% swagger-response status="409: Conflict" description="" %}
+```json
+{"detail":"The image you provided is already in the user favorites, consider using /fav/toggle instead."}
 ```
 {% endswagger-response %}
 
@@ -347,13 +357,13 @@ fetch(apiUrl, {
 {% endtab %}
 {% endtabs %}
 
-{% swagger method="delete" path="fav/delete" baseUrl="https://api.waifu.im/" summary="Removes an image from the user's favorites" %}
+{% swagger method="delete" path="fav/delete" baseUrl="https://api.waifu.im/" summary="Removes an image from the user" %}
 {% swagger-description %}
-Requires 
+Requires
 
 `manage_favorites`
 
- permission.
+permission.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="image_id" type="integer" required="true" %}
@@ -365,7 +375,9 @@ The user ID of the user whose favorites you want to edit.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-`Bearer` followed by a space and your token
+`Bearer`
+
+ followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -487,7 +499,7 @@ fetch(apiUrl, {
 {% endtab %}
 {% endtabs %}
 
-{% swagger method="post" path="fav/toggle" baseUrl="https://api.waifu.im/" summary="Toggles an image in the user's favorites" %}
+{% swagger method="post" path="fav/toggle" baseUrl="https://api.waifu.im/" summary="Toggles an image in the user" %}
 {% swagger-description %}
 If the image is already in the user's favorites, it will be removed. If it was not in the favorites, it will be inserted.
 
@@ -503,7 +515,9 @@ The user ID of the user whose favorites you want to edit.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-`Bearer` followed by a space and your token
+`Bearer`
+
+ followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="If the image was already in the favorites" %}
