@@ -357,7 +357,7 @@ fetch(apiUrl, {
 {% endtab %}
 {% endtabs %}
 
-{% swagger method="delete" path="fav/delete" baseUrl="https://api.waifu.im/" summary="Removes an image from the user" %}
+{% swagger method="post" path="fav/delete" baseUrl="https://api.waifu.im/" summary="Removes an image from the user" %}
 {% swagger-description %}
 Requires
 
