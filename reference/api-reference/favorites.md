@@ -422,7 +422,7 @@ Here is an example to remove the image ID `8008` from your favorites:
 {% tabs %}
 {% tab title="Curl" %}
 ```bash
-curl -X DELETE \
+curl -X POST \
   'https://api.waifu.im/fav/delete' \
   -H 'Content-Type: application/json' \
   -H 'Accept-Version: v5' \
@@ -449,7 +449,7 @@ data = {
     'image_id': 8008
 }
 
-response = requests.delete(url, headers=headers, json=data)
+response = requests.post(url, headers=headers, json=data)
 
 if response.status_code == 200:
     data = response.json()
@@ -475,7 +475,7 @@ const data = {
 };
 
 fetch(apiUrl, {
-  method: 'DELETE',
+  method: 'POST',
   headers: headers,
   body: JSON.stringify(data)
 })
