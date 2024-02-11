@@ -6,11 +6,7 @@ The following route isnt part of the API but is more like a functionality of the
 
 {% swagger method="get" path="authorization" baseUrl="https://www.waifu.im/" summary="Prompt a user to give you permissions over their account." %}
 {% swagger-description %}
-The person that consult the page and click on 
-
-`Authorize`
-
- will grant permissions over their account
+The person that consult the page and click on `Authorize` will grant permissions over their account
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="user_id" type="integer" required="true" %}
@@ -18,23 +14,13 @@ The discord user ID of the user that will receive the permissions
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="permissions" type="array[string]" required="true" %}
-The permissions that will be asked for. Available permissions are 
-
-`view_favorites`
-
- and 
-
-`manage_favorites`
+The permissions that will be asked for. Available permissions are `view_favorites` and `manage_favorites`
 {% endswagger-parameter %}
 {% endswagger %}
 
 {% swagger method="get" path="authorization/revoke" baseUrl="https://www.waifu.im/" summary="Prompt a user to revoke permissions over their account." %}
 {% swagger-description %}
-The person that consult the page and click on 
-
-`Revoke`
-
- will revoke permissions over their account
+The person that consult the page and click on `Revoke` will revoke permissions over their account
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="user_id" required="true" type="integer" %}
@@ -42,12 +28,6 @@ The discord user ID of the user that the permissions will be revoked
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="permissions" required="true" type="array[string]" %}
-The permissions that will be prompted to be revoked. Available permissions are 
-
-`view_favorites`
-
- and 
-
-`manage_favorites`
+The permissions that will be prompted to be revoked. Available permissions are `view_favorites` and `manage_favorites`
 {% endswagger-parameter %}
 {% endswagger %}

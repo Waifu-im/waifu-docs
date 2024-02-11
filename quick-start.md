@@ -5,7 +5,7 @@ This small tutorial will only provide you with minimal knowledge of the API, if 
 {% endhint %}
 
 {% hint style="info" %}
-Alternatively you can also use one of the packages mentioned in [#packages](ressources.md#packages "mention")
+Alternatively you can also use one of the packages mentioned in [#packages](resources.md#packages "mention")
 {% endhint %}
 
 ## Get a random image

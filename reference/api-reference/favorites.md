@@ -32,7 +32,7 @@ Force the API to not list the specified file IDs or signatures.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" required="false" name="is_nsfw" type="string" %}
-Force or exclude lewd files (only works if included_tags only contain versatile tags and no nsfw only tag). You can provide 'null' to make it random.
+Force or exclude lewd files (only works if included\_tags only contain versatile tags and no nsfw only tag). You can provide 'null' to make it random.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" required="false" name="gif" type="boolean" %}
@@ -68,9 +68,7 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" required="true" type="string" %}
-`Bearer`
-
- followed by a space and your token
+`Bearer` followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -227,9 +225,7 @@ The user ID of the user whose favorites you want to edit.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-`Bearer`
-
- followed by a space and your token
+`Bearer` followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -375,9 +371,7 @@ The user ID of the user whose favorites you want to edit.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-`Bearer`
-
- followed by a space and your token
+`Bearer` followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -515,9 +509,7 @@ The user ID of the user whose favorites you want to edit.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-`Bearer`
-
- followed by a space and your token
+`Bearer` followed by a space and your token
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="If the image was already in the favorites" %}

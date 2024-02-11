@@ -8,7 +8,7 @@
 * [Authentication](authentication.md)
 * [Permissions](permissions.md)
 * [Authorization](authorization.md)
-* [Ressources](ressources.md)
+* [Resources](resources.md)
 * [Contact us](contact-us.md)
 
 ## Reference
