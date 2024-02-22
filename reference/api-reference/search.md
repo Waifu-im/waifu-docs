@@ -22,7 +22,7 @@ Force the API to not list the specified file IDs or signatures.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" required="false" name="is_nsfw" type="string" %}
-Force or exclude lewd files (only works if included_tags only contain versatile tags and no nsfw only tag). You can provide 'null' to make it random.
+Force or exclude lewd files (only works if included\_tags only contain versatile tags and no nsfw only tag). You can provide 'null' to make it random.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" required="false" name="gif" type="boolean" %}
@@ -173,8 +173,18 @@ const params = {
   height: '>=2000'
 };
 
-const queryParams = new URLSearchParams(params);
-const requestUrl = `${apiUrl}?${queryParams}`;
+const queryParams = new URLSearchParams();
+
+for (const key in params) {
+  if (Array.isArray(params[key])) {
+    params[key].forEach(value => {
+      queryParams.append(key, value);
+    });
+  } else {
+    queryParams.set(key, params[key]);
+  }
+}
+const requestUrl = `${apiUrl}?${queryParams.toString()}`;
 
 fetch(requestUrl)
   .then(response => {

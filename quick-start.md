@@ -12,13 +12,13 @@ Alternatively you can also use one of the packages mentioned in [#packages](reso
 
 The easiest and most common way to use the API is to get a random waifu images.
 
-Here is an example to get a random image with the `maid` tag with an height superior or equal to 2000 pixels:
+Here is an example to get a random image with the `raiden-shogun` and `maid` tags with an height superior or equal to 2000 pixels:
 
 {% tabs %}
 {% tab title="Curl" %}
 ```bash
 curl -X GET \
-  'https://api.waifu.im/search?included_tags=maid&height=>=2000' \
+  'https://api.waifu.im/search?included_tags=raiden-shogun&included_tags=maid&height=>=2000' \
   -H 'Content-Type: application/json'
 ```
 {% endtab %}
@@ -29,7 +29,7 @@ import requests
 
 url = 'https://api.waifu.im/search'
 params = {
-    'included_tags': ['maid'],
+    'included_tags': ['raiden-shogun', 'maid'],
     'height': '>=2000'
 }
 
@@ -48,12 +48,22 @@ else:
 ```javascript
 const apiUrl = 'https://api.waifu.im/search';  // Replace with the actual API endpoint URL
 const params = {
-  included_tags: 'maid',
+  included_tags: ['raiden-shogun', 'maid'],
   height: '>=2000'
 };
 
-const queryParams = new URLSearchParams(params);
-const requestUrl = `${apiUrl}?${queryParams}`;
+const queryParams = new URLSearchParams();
+
+for (const key in params) {
+  if (Array.isArray(params[key])) {
+    params[key].forEach(value => {
+      queryParams.append(key, value);
+    });
+  } else {
+    queryParams.set(key, params[key]);
+  }
+}
+const requestUrl = `${apiUrl}?${queryParams.toString()}`;
 
 fetch(requestUrl)
   .then(response => {
