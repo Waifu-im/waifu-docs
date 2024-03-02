@@ -24,6 +24,7 @@ Here are the tags available.
 * [oppai](https://api.waifu.im/search?included\_tags=oppai)
 * [selfies](https://api.waifu.im/search?included\_tags=selfies)
 * [uniform](https://api.waifu.im/search?included\_tags=uniform)
+* [kamisato-ayaka](https://api.waifu.im/search?included\_tags=kamisato-ayaka)
 {% endtab %}
 
 {% tab title="NSFW" %}
