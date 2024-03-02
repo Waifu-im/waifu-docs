@@ -91,7 +91,6 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
         "deviant_art": null
       },
       "uploaded_at": "2022-04-07T13:51:47.979181Z",
-      "uploader": 953746972518275160,
       "liked_at": "2022-04-07T14:07:46.455245Z",
       "is_nsfw": false,
       "width": 1406,
