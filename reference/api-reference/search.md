@@ -94,6 +94,7 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
         }
       ],
       "uploaded_at": "2023-05-03T18:40:04.381354+02:00",
+      "uploader": 953746972518275160,
       "url": "https://cdn.waifu.im/8108.png",
       "width": 1536
     }
