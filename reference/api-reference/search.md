@@ -18,7 +18,7 @@ Retrieves images randomly or by tag based on the specified search criteria.
 | gif             | boolean        | Force or prevent the API to return .gif files.                                                                                                         |
 | order\_by       | string         | Ordering criteria for the images.                                                                                                                      |
 | orientation     | string         | Image orientation criteria.                                                                                                                            |
-| limit           | integer        | Return an array of the number provided. A value greater than 30 requires admin permissions.                                                            |
+| limit           | integer        | Return an array of the number provided. A value greater than 30 requires admin permissions. Default is 1.                                              |
 | full            | boolean        | Returns the full result without any limit (admins only).                                                                                               |
 | width           | string         | Filter images by width (in pixels). Accepted operators: <=, >=, >, <, !=, =                                                                            |
 | height          | string         | Filter images by height (in pixels). Accepted operators: <=, >=, >, <, !=, =                                                                           |
