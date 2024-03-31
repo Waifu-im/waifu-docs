@@ -2,16 +2,18 @@
 
 ## Get tags
 
-{% swagger method="get" path="tags" baseUrl="https://api.waifu.im/" summary="Get all the tags available." %}
-{% swagger-description %}
+## Get all the tags available.
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://api.waifu.im/tags`
 
-{% swagger-parameter in="query" name="full" type="boolean" %}
-Returns more information about the tags, such as a description.
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200: OK" description="without full" %}
+| Name | Type    | Description                                                     |
+| ---- | ------- | --------------------------------------------------------------- |
+| full | boolean | Returns more information about the tags, such as a description. |
+
+{% tabs %}
+{% tab title="200: OK without full" %}
 ```json
 {
   "versatile": [
@@ -22,7 +24,8 @@ Returns more information about the tags, such as a description.
     "raiden-shogun",
     "oppai",
     "selfies",
-    "uniform"
+    "uniform",
+    "kamisato-ayaka"
   ],
   "nsfw": [
     "ass",
@@ -35,9 +38,9 @@ Returns more information about the tags, such as a description.
   ]
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="200: OK" description="with full" %}
+{% tab title="200: OK with full" %}
 ```json
 {
   "versatile": [
@@ -136,38 +139,38 @@ Returns more information about the tags, such as a description.
   ]
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="" %}
+{% tab title="400: Bad Request " %}
 ```json
 {"detail":"Bad Request"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="" %}
+{% tab title="401: Unauthorized " %}
 ```json
 {"detail":"Unauthorized"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="" %}
+{% tab title="403: Forbidden " %}
 ```json
 {"detail":"Forbidden"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="404: Not Found" description="" %}
+{% tab title="404: Not Found " %}
 ```json
 {"detail":"Not Found"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="500: Internal Server Error" description="" %}
+{% tab title="500: Internal Server Error " %}
 ```json
 {"detail":"Internal Server Error"}
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 Here is an example to get a list of all the tags available:
 
