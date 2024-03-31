@@ -1,67 +1,37 @@
 # Search
 
-{% swagger method="get" path="search" baseUrl="https://api.waifu.im/" summary="Search images." expanded="true" %}
-{% swagger-description %}
+## Search images.
+
+<mark style="color:blue;">`GET`</mark> `https://api.waifu.im/search`
+
 Retrieves images randomly or by tag based on the specified search criteria.
-{% endswagger-description %}
 
-{% swagger-parameter in="query" required="false" name="included_tags" type="array[string]" %}
-Force the API to return images with at least all the provided tags.
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" required="false" name="excluded_tags" type="array[string]" %}
-Force the API to return images without any of the provided tags.
-{% endswagger-parameter %}
+| Name            | Type           | Description                                                                                                                                            |
+| --------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| included\_tags  | array\[string] | Force the API to return images with at least all the provided tags.                                                                                    |
+| excluded\_tags  | array\[string] | Force the API to return images without any of the provided tags.                                                                                       |
+| included\_files | array\[string] | Force the API to provide only the specified file IDs or signatures.                                                                                    |
+| excluded\_files | array\[string] | Force the API to not list the specified file IDs or signatures.                                                                                        |
+| is\_nsfw        | string         | Force or exclude lewd files (only works if included\_tags only contain versatile tags and no nsfw only tag). You can provide 'null' to make it random. |
+| gif             | boolean        | Force or prevent the API to return .gif files.                                                                                                         |
+| order\_by       | string         | Ordering criteria for the images.                                                                                                                      |
+| orientation     | string         | Image orientation criteria.                                                                                                                            |
+| limit           | integer        | Return an array of the number provided. A value greater than 30 requires admin permissions.                                                            |
+| full            | boolean        | Returns the full result without any limit (admins only).                                                                                               |
+| width           | string         | Filter images by width (in pixels). Accepted operators: <=, >=, >, <, !=, =                                                                            |
+| height          | string         | Filter images by height (in pixels). Accepted operators: <=, >=, >, <, !=, =                                                                           |
+| byte\_size      | string         | Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =                                                                                    |
 
-{% swagger-parameter in="query" required="false" name="included_files" type="array[string]" %}
-Force the API to provide only the specified file IDs or signatures.
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="query" required="false" name="excluded_files" type="array[string]" %}
-Force the API to not list the specified file IDs or signatures.
-{% endswagger-parameter %}
+| Name          | Type   | Description                                 |
+| ------------- | ------ | ------------------------------------------- |
+| Authorization | string | `Bearer` followed by a space and your token |
 
-{% swagger-parameter in="query" required="false" name="is_nsfw" type="string" %}
-Force or exclude lewd files (only works if included\_tags only contain versatile tags and no nsfw only tag). You can provide 'null' to make it random.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" required="false" name="gif" type="boolean" %}
-Force or prevent the API to return .gif files.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" required="false" name="order_by" type="string" %}
-Ordering criteria for the images.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" required="false" name="orientation" type="string" %}
-Image orientation criteria.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" required="false" name="many" type="boolean" %}
-Return an array of 30 files if true.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" required="false" name="full" type="boolean" %}
-Returns the full result without any limit (admins only).
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" required="false" name="width" type="string" %}
-Filter images by width (in pixels). Accepted operators: <=, >=, >, <, !=, =
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" required="false" name="height" type="string" %}
-Filter images by height (in pixels). Accepted operators: <=, >=, >, <, !=, =
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" required="false" name="byte_size" type="string" %}
-Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
-{% endswagger-parameter %}
-
-{% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
-`Bearer` followed by a space and your token
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```json
 {
   "images": [
@@ -100,38 +70,38 @@ Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =
   ]
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="" %}
+{% tab title="400: Bad Request " %}
 ```json
 {"detail":"Bad Request"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="" %}
+{% tab title="401: Unauthorized " %}
 ```json
 {"detail":"Unauthorized"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="" %}
+{% tab title="403: Forbidden " %}
 ```json
 {"detail":"Forbidden"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="404: Not Found" description="" %}
+{% tab title="404: Not Found " %}
 ```json
 {"detail":"Not Found"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="500: Internal Server Error" description="" %}
+{% tab title="500: Internal Server Error " %}
 ```json
 {"detail":"Internal Server Error"}
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 Here is an example to get a random image with the `maid` tag with an height superior or equal to 2000 pixels:
 
