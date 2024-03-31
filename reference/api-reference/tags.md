@@ -91,6 +91,12 @@
       "name": "uniform",
       "description": "Girls wearing any kind of uniform, cosplay etc... ",
       "is_nsfw": false
+    },
+    {
+      "tag_id": 17,
+      "name": "kamisato-ayaka",
+      "description": "Kamisato Ayaka is a playable Cryo character in Genshin Impact.",
+      "is_nsfw": false
     }
   ],
   "nsfw": [
