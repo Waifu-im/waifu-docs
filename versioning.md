@@ -7,7 +7,7 @@ If you do not specify a version, the api will use the latest available, this beh
 {% endhint %}
 
 {% hint style="info" %}
-The current version of the API is`{{ __version__ }}`.
+The current version of the API is `v6`.
 {% endhint %}
 
 {% tabs %}
@@ -16,7 +16,7 @@ The current version of the API is`{{ __version__ }}`.
 curl -X GET \
   'https://api.waifu.im/search' \
   -H 'Content-Type: application/json' \
-  -H 'Accept-Version: {{ __version__ }}'
+  -H 'Accept-Version: v6'
 ```
 {% endtab %}
 
@@ -27,7 +27,7 @@ import requests
 url = 'https://api.waifu.im/search'
 
 headers = {
-    'Accept-Version': '{{ __version__ }}'
+    'Accept-Version': 'v6'
 }
 
 response = requests.get(url, headers=headers)
@@ -46,7 +46,7 @@ else:
 const apiUrl = 'https://api.waifu.im/search';
 
 const headers = new Headers();
-headers.append('Accept-Version', '{{ __version__ }}');
+headers.append('Accept-Version', 'v6');
 
 fetch(apiUrl, { headers })
   .then(response => {
