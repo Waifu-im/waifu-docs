@@ -1,65 +1,68 @@
 # Report
 
-{% swagger method="post" path="report" baseUrl="https://api.waifu.im/" summary="Reports an image." %}
-{% swagger-description %}
+## Reports an image.
+
+<mark style="color:green;">`POST`</mark> `https://api.waifu.im/report`
+
 Used to report any inappropriate, offensive or wrongly labelled image in the API.
 
 Requires `report` permission.
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="image_id" type="integer" required="true" %}
-The ID of the image to report.
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="body" name="description" type="string" required="false" %}
-A brief explanation (up to 200 characters) used to describe the issue.
-{% endswagger-parameter %}
+| Name                                            | Type   | Description                                 |
+| ----------------------------------------------- | ------ | ------------------------------------------- |
+| Authorization<mark style="color:red;">\*</mark> | string | `Bearer` followed by a space and your token |
 
-{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-`Bearer` followed by a space and your token
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-response status="200: OK" description="" %}
+| Name                                        | Type    | Description                                                            |
+| ------------------------------------------- | ------- | ---------------------------------------------------------------------- |
+| image\_id<mark style="color:red;">\*</mark> | integer | The ID of the image to report.                                         |
+| description                                 | string  | A brief explanation (up to 200 characters) used to describe the issue. |
+
+{% tabs %}
+{% tab title="200: OK " %}
 ```json
 {
-  "author_id": 428346579283272370,
+  "author_id": "428346579283272370",
   "description": "The tag 'maid' does not suit the image.",
   "existed": false,
   "image_id": 8008
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="" %}
+{% tab title="400: Bad Request " %}
 ```json
 {"detail":"Bad Request"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="" %}
+{% tab title="401: Unauthorized " %}
 ```json
 {"detail":"Unauthorized"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="" %}
+{% tab title="403: Forbidden " %}
 ```json
 {"detail":"Forbidden"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="404: Not Found" description="" %}
+{% tab title="404: Not Found " %}
 ```json
 {"detail":"Not Found"}
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="500: Internal Server Error" description="" %}
+{% tab title="500: Internal Server Error " %}
 ```json
 {"detail":"Internal Server Error"}
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 {% hint style="warning" %}
 If the image was already reported the `existed` key will be `true.`
