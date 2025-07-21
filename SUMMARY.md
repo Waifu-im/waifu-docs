@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 * [Quick Start](quick-start.md)
 * [Versioning](versioning.md)
+* [Cloudflare GeoBlocking](cloudflare-geoblocking.md)
 * [Rate Limiting](rate-limiting.md)
 * [Tags](tags.md)
 * [Authentication](authentication.md)
