@@ -4,6 +4,10 @@ icon: triangle-exclamation
 
 # Cloudflare GeoBlocking
 
+{% hint style="success" %}
+As of now (24/07/2025), the DDoS attack can be mitigated. If it becomes unmanageable, GeoBlocking will be reinstated.
+{% endhint %}
+
 Due to repeated abuse and a recent DDoS attack originating from specific regions, requests from certain countries are now subject to Cloudflare's managed challenge. This helps protect the stability and reliability of the API for all users.
 
 If you're affected and require access, you can request a personal geo-blocking bypass key. To do so:
