@@ -8,21 +8,21 @@ Retrieves images randomly or by tag based on the specified search criteria.
 
 #### Query Parameters
 
-| Name            | Type           | Description                                                                                                                                            |
-| --------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| included\_tags  | array\[string] | Force the API to return images with at least all the provided tags.                                                                                    |
-| excluded\_tags  | array\[string] | Force the API to return images without any of the provided tags.                                                                                       |
-| included\_files | array\[string] | Force the API to provide only the specified file IDs or signatures.                                                                                    |
-| excluded\_files | array\[string] | Force the API to not list the specified file IDs or signatures.                                                                                        |
-| is\_nsfw        | string         | Force or exclude lewd files (only works if included\_tags only contain versatile tags and no nsfw only tag). You can provide 'null' to make it random. |
-| gif             | boolean        | Force or prevent the API to return .gif files.                                                                                                         |
-| order\_by       | string         | Ordering criteria for the images.                                                                                                                      |
-| orientation     | string         | Image orientation criteria.                                                                                                                            |
-| limit           | integer        | Return an array of the number provided. A value greater than 30 requires admin permissions. Default is 1.                                              |
-| full            | boolean        | Returns the full result without any limit (admins only).                                                                                               |
-| width           | string         | Filter images by width (in pixels). Accepted operators: <=, >=, >, <, !=, =                                                                            |
-| height          | string         | Filter images by height (in pixels). Accepted operators: <=, >=, >, <, !=, =                                                                           |
-| byte\_size      | string         | Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =                                                                                    |
+| Name            | Type           | Description                                                                                                                                                              |
+| --------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| included\_tags  | array\[string] | Force the API to return images with at least all the provided tags.                                                                                                      |
+| excluded\_tags  | array\[string] | Force the API to return images without any of the provided tags.                                                                                                         |
+| included\_files | array\[string] | Force the API to provide only the specified file IDs or signatures.                                                                                                      |
+| excluded\_files | array\[string] | Force the API to not list the specified file IDs or signatures.                                                                                                          |
+| is\_nsfw        | string         | Default to false. Force or exclude lewd files (only works if included\_tags only contain versatile tags and no nsfw only tag). You can provide 'null' to make it random. |
+| gif             | boolean        | Force or prevent the API to return .gif files.                                                                                                                           |
+| order\_by       | string         | Ordering criteria for the images.                                                                                                                                        |
+| orientation     | string         | Image orientation criteria.                                                                                                                                              |
+| limit           | integer        | Return an array of the number provided. A value greater than 30 requires admin permissions. Default is 1.                                                                |
+| full            | boolean        | Returns the full result without any limit (admins only).                                                                                                                 |
+| width           | string         | Filter images by width (in pixels). Accepted operators: <=, >=, >, <, !=, =                                                                                              |
+| height          | string         | Filter images by height (in pixels). Accepted operators: <=, >=, >, <, !=, =                                                                                             |
+| byte\_size      | string         | Filter images by byte size. Accepted operators: <=, >=, >, <, !=, =                                                                                                      |
 
 #### Headers
 
