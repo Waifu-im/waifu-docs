@@ -46,7 +46,7 @@ else:
 
 {% tab title="Javascript" %}
 ```javascript
-const apiUrl = 'https://api.waifu.im/search';  // Replace with the actual API endpoint URL
+const apiUrl = 'https://api.waifu.im/search';
 const params = {
   included_tags: ['raiden-shogun', 'maid'],
   height: '>=2000'
